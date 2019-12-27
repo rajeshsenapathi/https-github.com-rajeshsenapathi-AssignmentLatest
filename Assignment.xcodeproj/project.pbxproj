@@ -21,7 +21,6 @@
 		2111F6C423B4E5AF00B97F35 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111F6C323B4E5AF00B97F35 /* File.swift */; };
 		2111F6C623B4E5B800B97F35 /* ModelJsonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111F6C523B4E5B800B97F35 /* ModelJsonObject.swift */; };
 		2111F6C823B4E5C400B97F35 /* Rows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111F6C723B4E5C400B97F35 /* Rows.swift */; };
-		21F947B923B5FB5A00288236 /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F947B823B5FB5A00288236 /* RefreshControl.swift */; };
 		21F947BB23B6206100288236 /* ApiHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F947BA23B6206100288236 /* ApiHandler.swift */; };
 		21F947BD23B6208900288236 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F947BC23B6208900288236 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -64,7 +63,6 @@
 		2111F6C323B4E5AF00B97F35 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		2111F6C523B4E5B800B97F35 /* ModelJsonObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelJsonObject.swift; sourceTree = "<group>"; };
 		2111F6C723B4E5C400B97F35 /* Rows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rows.swift; sourceTree = "<group>"; };
-		21F947B823B5FB5A00288236 /* RefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
 		21F947BA23B6206100288236 /* ApiHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiHandler.swift; path = Assignment/Extensions/ApiHandler.swift; sourceTree = SOURCE_ROOT; };
 		21F947BC23B6208900288236 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +117,8 @@
 			children = (
 				2111F68723B4E53B00B97F35 /* AppDelegate.swift */,
 				2111F68923B4E53B00B97F35 /* SceneDelegate.swift */,
+				2111F6C023B4E56400B97F35 /* ViewControllers */,
+				2111F6CB23B4E62100B97F35 /* SubViewsAndCells */,
 				2111F6CE23B4E67000B97F35 /* Model */,
 				2111F6BD23B4E55F00B97F35 /* NetworkAdaptor */,
 				2111F6BA23B4E55800B97F35 /* Extensions */,
@@ -127,7 +127,6 @@
 				2111F69023B4E53C00B97F35 /* Assets.xcassets */,
 				2111F69223B4E53C00B97F35 /* LaunchScreen.storyboard */,
 				2111F69523B4E53C00B97F35 /* Info.plist */,
-				21F947B823B5FB5A00288236 /* RefreshControl.swift */,
 			);
 			path = Assignment;
 			sourceTree = "<group>";
@@ -178,9 +177,9 @@
 			isa = PBXGroup;
 			children = (
 				2111F6C123B4E56400B97F35 /* ViewController.swift */,
-				2111F6CB23B4E62100B97F35 /* SubViewsAndCells */,
 			);
-			path = ViewControllers;
+			name = ViewControllers;
+			path = SubViewsAndCells/ViewControllers;
 			sourceTree = "<group>";
 		};
 		2111F6CB23B4E62100B97F35 /* SubViewsAndCells */ = {
@@ -198,7 +197,6 @@
 				2111F6C323B4E5AF00B97F35 /* File.swift */,
 				21F947BA23B6206100288236 /* ApiHandler.swift */,
 				2111F6C723B4E5C400B97F35 /* Rows.swift */,
-				2111F6C023B4E56400B97F35 /* ViewControllers */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -336,7 +334,6 @@
 			files = (
 				2111F6BC23B4E55800B97F35 /* Extensions.swift in Sources */,
 				2111F6C623B4E5B800B97F35 /* ModelJsonObject.swift in Sources */,
-				21F947B923B5FB5A00288236 /* RefreshControl.swift in Sources */,
 				2111F6BF23B4E55F00B97F35 /* Reachability.swift in Sources */,
 				2111F68823B4E53B00B97F35 /* AppDelegate.swift in Sources */,
 				2111F6C223B4E56400B97F35 /* ViewController.swift in Sources */,
