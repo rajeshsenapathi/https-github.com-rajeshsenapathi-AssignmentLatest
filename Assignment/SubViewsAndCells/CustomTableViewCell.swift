@@ -19,14 +19,13 @@ class CustomTableViewCell: UITableViewCell {
     let profileImageView: UIImageView = {
          
          let iv = UIImageView ()
-        iv.contentMode = .scaleToFill // image will never be strecthed vertially or horizontally
+        iv.contentMode = .scaleAspectFit// image will never be strecthed vertially or horizontally
               iv.translatesAutoresizingMaskIntoConstraints = false
                    iv.backgroundColor = UIColor(red: 0.94, green: 0.94, blue: 0.96, alpha: 1.0)
-        iv.contentMode = .scaleToFill
         iv.tintColor = .black
         iv.layer.cornerRadius = 5
         iv.layer.masksToBounds = true
-                    iv.clipsToBounds = true
+        iv.clipsToBounds = true
                    return iv
     }()
    
@@ -64,6 +63,7 @@ class CustomTableViewCell: UITableViewCell {
         profileImageView.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 20).isActive = true
         profileImageView.leadingAnchor.constraint(equalTo:self.contentView.leadingAnchor, constant:10).isActive = true
         profileImageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 10).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         if dev == .pad{
             profileImageView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -280).isActive = true
         }
@@ -74,6 +74,7 @@ class CustomTableViewCell: UITableViewCell {
         containerView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10).isActive = true
         containerView.leadingAnchor.constraint(equalTo:self.profileImageView.trailingAnchor, constant:20).isActive = true
         containerView.trailingAnchor.constraint(equalTo:self.contentView.trailingAnchor, constant:-10).isActive = true
+        
         nameLabel.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 15).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor).isActive = true

@@ -31,7 +31,6 @@ class ViewController: UIViewController {
               canadaTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
               canadaTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
                canadaTableView.tableFooterView = UIView()
-              canadaTableView.estimatedRowHeight = UITableView.automaticDimension
          refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
         let attributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 0.25, green: 0.72, blue: 0.85, alpha: 1.0)]
        let attributedTitle = NSAttributedString(string: "Pull Down To Refresh", attributes: attributes)
@@ -45,7 +44,7 @@ class ViewController: UIViewController {
        
          if Reachability.isConnectedToNetwork(){
             print(Constants.InternetConnectivity.NETWORK_SUCCESS_MSG)
-            self.presentAlert(withTitle: "", message: "Pull down Table View to Refresh the data")
+            self.getItemsList()
                }else{
                    print(Constants.InternetConnectivity.NETWORK_Failure_MSG)
             self.presentNetowrkAlertWithTwoButton(withTitle: Constants.AlertConstatnts.TITLE, message: Constants.AlertConstatnts.Title_Msg) { (UiAlertActionIn) in
@@ -53,7 +52,6 @@ class ViewController: UIViewController {
             }
             return;
                }
-    
     }
     @objc private func refreshdata(_ sender: Any) {
         // Fetch Weather Data
@@ -74,7 +72,6 @@ class ViewController: UIViewController {
                            let decoder = JSONDecoder()
                            let jsonObj = try decoder.decode(ModelJsonObject.self, from: modifiedDataInUTF8Format)
                            self.jsonRowsArray = jsonObj.rows!
-                            
                             DispatchQueue.main.async {
                                 self.canadaTableView.reloadData()
                                 self.title = jsonObj.title
@@ -89,9 +86,5 @@ class ViewController: UIViewController {
     }
   
 }
-extension ViewController{
-    @objc func refreshData(_ refreshControl: UIRefreshControl) {
-        print("refreshing")
-        canadaTableView.endUpdates()
-    }
-}
+
+

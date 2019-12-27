@@ -24,19 +24,26 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.SubViewCellConstants.Custom_TableCell_resuseIdentiFier, for: indexPath) as! CustomTableViewCell
         cell.nameLabel.text =  self.jsonRowsArray?[indexPath.row].title
         cell.jobTitleDetailedLabel.text = self.jsonRowsArray?[indexPath.row].description
-        cell.profileImageView.image = UIImage(named: Constants.ImageConstatnts.Placeholder_ImageName)
-        cell.profileImageView.downloadImageFrom(link: self.jsonRowsArray?[indexPath.row].imageHref ?? Constants.API.PLACEHOLDERURL, contentMode: .scaleToFill)
+        DispatchQueue.main.async {
+              cell.profileImageView.image = UIImage(named: Constants.ImageConstatnts.Placeholder_ImageName)
+        }
+            cell.profileImageView.downloadImageFrom(link: self.jsonRowsArray?[indexPath.row].imageHref ?? Constants.ImageConstatnts.Placeholder_ImageName, contentMode: .scaleToFill)
+        
+      
         let image =    cell.profileImageView.image
         _ =  image?.image(alpha: 0.5)
-       
+
         self.canadaTableView.separatorStyle = .none
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension + 250
+    
+            return UITableView.automaticDimension
+        
     }
+   
     
     func presentNetowrkAlertWithTwoButton(withTitle title: String, message : String, actionHandler: ((UIAlertAction) -> Void)?) {
                 let alertController = UIAlertController(title: title, message:"", preferredStyle: .alert)
@@ -70,14 +77,18 @@ extension UIImage {
 }
 extension UIImageView {
     func downloadImageFrom(link:String, contentMode: UIView.ContentMode) {
-        URLSession.shared.dataTask( with: NSURL(string:link)! as URL, completionHandler: {
-            (data, response, error) -> Void in
-            DispatchQueue.main.async {
-                self.contentMode =  contentMode
-                if let data = data {
-                self.image = UIImage(data: data)
+        DispatchQueue.global().async {
+            URLSession.shared.dataTask( with: NSURL(string:link)! as URL, completionHandler: {
+                (data, response, error) -> Void in
+                DispatchQueue.main.async {
+                    self.contentMode =  contentMode
+                    if let data = data {
+                    self.image = UIImage(data: data)
+                    }
+                   
                 }
-            }
-        }).resume()
+            }).resume()
+        }
+        
     }
 }
