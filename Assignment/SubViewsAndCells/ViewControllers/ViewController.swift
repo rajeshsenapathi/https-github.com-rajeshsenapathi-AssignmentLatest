@@ -54,7 +54,6 @@ class ViewController: UIViewController {
                }
     }
     @objc private func refreshdata(_ sender: Any) {
-        // Fetch Weather Data
         self.getItemsList()
         self.refreshControl.endRefreshing()
     }
