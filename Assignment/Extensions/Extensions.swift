@@ -35,7 +35,7 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension + 270
+        return UITableView.automaticDimension + 250
     }
     
     func presentNetowrkAlertWithTwoButton(withTitle title: String, message : String, actionHandler: ((UIAlertAction) -> Void)?) {
@@ -67,7 +67,6 @@ extension UIImageView {
                 self.contentMode =  contentMode
                 if let data = data {
                 self.image = UIImage(data: data)
-                    
                 }
             }
         }).resume()
