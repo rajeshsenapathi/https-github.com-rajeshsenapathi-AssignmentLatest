@@ -65,6 +65,7 @@
 		2111F6C723B4E5C400B97F35 /* Rows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rows.swift; sourceTree = "<group>"; };
 		21F947BA23B6206100288236 /* ApiHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiHandler.swift; path = Assignment/Extensions/ApiHandler.swift; sourceTree = SOURCE_ROOT; };
 		21F947BC23B6208900288236 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		21F947C023B6267B00288236 /* RefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +126,7 @@
 				2111F6B723B4E55100B97F35 /* Constants */,
 				2111F68D23B4E53B00B97F35 /* Main.storyboard */,
 				2111F69023B4E53C00B97F35 /* Assets.xcassets */,
+				21F947C023B6267B00288236 /* RefreshControl.swift */,
 				2111F69223B4E53C00B97F35 /* LaunchScreen.storyboard */,
 				2111F69523B4E53C00B97F35 /* Info.plist */,
 			);
