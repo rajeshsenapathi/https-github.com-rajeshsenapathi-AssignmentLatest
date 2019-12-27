@@ -18,7 +18,7 @@ struct  Constants {
     }
     struct ImageConstatnts{
         
-        static let Placeholder_ImageName = "null"
+        static let Placeholder_ImageName = "placeholder"
     }
     struct AlertConstatnts {
         static let CANCEL_MSG = "Cancel"

@@ -33,7 +33,7 @@ class CustomTableViewCell: UITableViewCell {
     
     let nameLabel:UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "SF-Pro-Display-Light", size: 14)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .black
         label.clipsToBounds = true
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -43,7 +43,7 @@ class CustomTableViewCell: UITableViewCell {
     let jobTitleDetailedLabel:UILabel = {
         let label = UILabel()
         label.font =  UIFont.systemFont(ofSize: 14)
-        label.textColor =  #colorLiteral(red: 0.8502992988, green: 0.1635301709, blue: 0.9296045899, alpha: 1)
+        label.textColor =  #colorLiteral(red: 0, green: 0.5714074969, blue: 0.9939200282, alpha: 1)
         label.backgroundColor = UIColor.white
          label.clipsToBounds = true
         label.adjustsFontSizeToFitWidth = true

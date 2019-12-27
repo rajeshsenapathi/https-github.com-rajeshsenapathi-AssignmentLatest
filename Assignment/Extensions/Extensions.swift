@@ -35,7 +35,7 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension + 270
+        return UITableView.automaticDimension + 250
     }
     
     func presentNetowrkAlertWithTwoButton(withTitle title: String, message : String, actionHandler: ((UIAlertAction) -> Void)?) {
@@ -47,6 +47,15 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
         alertController.preferredAction = RetryAction
         self.present(alertController, animated: true, completion: nil)
     }
+    func presentAlert(withTitle title: String, message : String) {
+           let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+           let OKAction = UIAlertAction(title: "OK", style: .default) { action in
+               print("You've pressed OK Button")
+           }
+           alertController.addAction(OKAction)
+           self.present(alertController, animated: true, completion: nil)
+       }
+       
     
 }
  
@@ -67,7 +76,6 @@ extension UIImageView {
                 self.contentMode =  contentMode
                 if let data = data {
                 self.image = UIImage(data: data)
-                    
                 }
             }
         }).resume()
