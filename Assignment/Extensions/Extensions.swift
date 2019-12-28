@@ -58,6 +58,9 @@ extension UIImageView {
                     if let data = data {
                         self?.image = UIImage(data: data)
                     }
+                    if self?.image == nil{
+                        self?.image = UIImage(named: Constants.ImageConstatnts.Placeholder_ImageName)
+                    }
                 }
             }).resume()
         }
