@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 extension ViewController: UITableViewDelegate,UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let jsonCount = self.jsonRowsArray?.count{
             return jsonCount
@@ -24,27 +23,18 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.SubViewCellConstants.Custom_TableCell_resuseIdentiFier, for: indexPath) as! CustomTableViewCell
         cell.nameLabel.text =  self.jsonRowsArray?[indexPath.row].title
         cell.jobTitleDetailedLabel.text = self.jsonRowsArray?[indexPath.row].description
-        DispatchQueue.main.async {
-              cell.profileImageView.image = UIImage(named: Constants.ImageConstatnts.Placeholder_ImageName)
-        }
-            cell.profileImageView.downloadImageFrom(link: self.jsonRowsArray?[indexPath.row].imageHref ?? Constants.ImageConstatnts.Placeholder_ImageName, contentMode: .scaleToFill)
-        
-      
-        let image =    cell.profileImageView.image
-        _ =  image?.image(alpha: 0.5)
-
-        self.canadaTableView.separatorStyle = .none
+        cell.profileImageView.downloadImageFrom(link: self.jsonRowsArray?[indexPath.row].imageHref ?? Constants.API.PLACEHOLDERURL, contentMode: .scaleToFill)
+                self.canadaTableView.separatorStyle = .none
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     
-            return UITableView.automaticDimension
+        return UITableView.automaticDimension
         
     }
    
-    
     func presentNetowrkAlertWithTwoButton(withTitle title: String, message : String, actionHandler: ((UIAlertAction) -> Void)?) {
                 let alertController = UIAlertController(title: title, message:"", preferredStyle: .alert)
         let CancelAction = UIAlertAction(title: Constants.AlertConstatnts.CANCEL_MSG, style: .cancel,handler: actionHandler)
@@ -54,41 +44,55 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
         alertController.preferredAction = RetryAction
         self.present(alertController, animated: true, completion: nil)
     }
-    func presentAlert(withTitle title: String, message : String) {
-           let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-           let OKAction = UIAlertAction(title: "OK", style: .default) { action in
-               print("You've pressed OK Button")
-           }
-           alertController.addAction(OKAction)
-           self.present(alertController, animated: true, completion: nil)
-       }
        
     
 }
- 
-extension UIImage {
-    func image(alpha: CGFloat) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(size, false, scale)
-        draw(at: .zero, blendMode: .normal, alpha: alpha)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage
-    }
-}
 extension UIImageView {
     func downloadImageFrom(link:String, contentMode: UIView.ContentMode) {
-        DispatchQueue.global().async {
+        DispatchQueue.global().async { [weak self] in
             URLSession.shared.dataTask( with: NSURL(string:link)! as URL, completionHandler: {
                 (data, response, error) -> Void in
                 DispatchQueue.main.async {
-                    self.contentMode =  contentMode
+                    self?.image = UIImage(named: Constants.ImageConstatnts.Placeholder_ImageName)
+                    self?.contentMode =  contentMode
                     if let data = data {
-                    self.image = UIImage(data: data)
+                        self?.image = UIImage(data: data)
                     }
-                   
                 }
             }).resume()
         }
         
     }
+}
+extension UIView{
+    func activityStartAnimating(activityColor: UIColor, backgroundColor: UIColor,title: String,center: CGPoint) {
+    let backgroundView = UIView()
+    backgroundView.frame = CGRect.init(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
+    backgroundView.backgroundColor = backgroundColor
+    backgroundView.tag = 475647
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    activityIndicator = UIActivityIndicatorView(frame: CGRect.init(x: 0, y: 0, width: 50, height: 50))
+    activityIndicator.center = self.center
+    activityIndicator.hidesWhenStopped = true
+    activityIndicator.style = UIActivityIndicatorView.Style.large
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        titleLabel.text = title
+    titleLabel.textColor = UIColor.black
+    activityIndicator.color = activityColor
+    activityIndicator.startAnimating()
+    self.isUserInteractionEnabled = false
+
+    backgroundView.addSubview(activityIndicator)
+    activityIndicator.addSubview(titleLabel)
+
+    self.addSubview(backgroundView)
+}
+
+func activityStopAnimating() {
+    if let background = viewWithTag(475647){
+        background.removeFromSuperview()
+    }
+    self.isUserInteractionEnabled = true
+}
+
 }

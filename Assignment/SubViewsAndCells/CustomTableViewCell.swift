@@ -19,7 +19,7 @@ class CustomTableViewCell: UITableViewCell {
     let profileImageView: UIImageView = {
          
          let iv = UIImageView ()
-        iv.contentMode = .scaleAspectFit// image will never be strecthed vertially or horizontally
+        iv.contentMode = .scaleToFill// image will never be strecthed vertially or horizontally
               iv.translatesAutoresizingMaskIntoConstraints = false
                    iv.backgroundColor = UIColor(red: 0.94, green: 0.94, blue: 0.96, alpha: 1.0)
         iv.tintColor = .black
@@ -42,7 +42,8 @@ class CustomTableViewCell: UITableViewCell {
     let jobTitleDetailedLabel:UILabel = {
         let label = UILabel()
         label.font =  UIFont.systemFont(ofSize: 14)
-        label.textColor =  #colorLiteral(red: 0, green: 0.5714074969, blue: 0.9939200282, alpha: 1)
+        label.textColor =  #colorLiteral(red: 0.002122662263, green: 0.4628389478, blue: 0.9952664971, alpha: 1)
+
         label.backgroundColor = UIColor.white
          label.clipsToBounds = true
         label.adjustsFontSizeToFitWidth = true
@@ -62,14 +63,13 @@ class CustomTableViewCell: UITableViewCell {
         let dev = self.traitCollection.userInterfaceIdiom
         profileImageView.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 20).isActive = true
         profileImageView.leadingAnchor.constraint(equalTo:self.contentView.leadingAnchor, constant:10).isActive = true
-        profileImageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 10).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        profileImageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 0).isActive = true
         if dev == .pad{
-            profileImageView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -280).isActive = true
+            profileImageView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -350).isActive = true
         }
         else{
             profileImageView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -240).isActive = true
-
         }
         containerView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10).isActive = true
         containerView.leadingAnchor.constraint(equalTo:self.profileImageView.trailingAnchor, constant:20).isActive = true
@@ -79,14 +79,16 @@ class CustomTableViewCell: UITableViewCell {
         nameLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor).isActive = true
         
-        jobTitleDetailedLabel.topAnchor.constraint(equalTo: self.nameLabel.bottomAnchor, constant: 5).isActive = true
+        jobTitleDetailedLabel.topAnchor.constraint(equalTo: self.nameLabel.bottomAnchor, constant: 0).isActive = true
         jobTitleDetailedLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor).isActive = true
         jobTitleDetailedLabel.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor).isActive = true
         jobTitleDetailedLabel.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: 0).isActive = true
-        
-        
-        
-    }
+        jobTitleDetailedLabel.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        if dev == .pad{
+            jobTitleDetailedLabel.font = UIFont.systemFont(ofSize: 20)
+            nameLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        }
+        }
     
     required init?(coder aDecoder: NSCoder) {
         

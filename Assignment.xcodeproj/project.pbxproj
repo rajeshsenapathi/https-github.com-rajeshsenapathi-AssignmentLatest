@@ -118,7 +118,6 @@
 				2111F68723B4E53B00B97F35 /* AppDelegate.swift */,
 				2111F68923B4E53B00B97F35 /* SceneDelegate.swift */,
 				2111F6C023B4E56400B97F35 /* ViewControllers */,
-				2111F6CB23B4E62100B97F35 /* SubViewsAndCells */,
 				2111F6CE23B4E67000B97F35 /* Model */,
 				2111F6BD23B4E55F00B97F35 /* NetworkAdaptor */,
 				2111F6BA23B4E55800B97F35 /* Extensions */,
@@ -177,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				2111F6C123B4E56400B97F35 /* ViewController.swift */,
+				2111F6CB23B4E62100B97F35 /* SubViewsAndCells */,
 			);
 			name = ViewControllers;
 			path = SubViewsAndCells/ViewControllers;
@@ -187,7 +187,8 @@
 			children = (
 				21F947BC23B6208900288236 /* CustomTableViewCell.swift */,
 			);
-			path = SubViewsAndCells;
+			name = SubViewsAndCells;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		2111F6CE23B4E67000B97F35 /* Model */ = {

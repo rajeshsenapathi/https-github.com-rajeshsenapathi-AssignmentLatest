@@ -18,6 +18,7 @@ class ApiHandler :NSObject {
     var jsonRows: [Rows]?
     var request : URLRequest?
     var session : URLSession?
+   
        static func instance() -> ApiHandler{
       
            return ApiHandler()
@@ -25,7 +26,7 @@ class ApiHandler :NSObject {
     
     func makeAPICall(url: String, method: HttpMethod, success:@escaping ( Data? ,HTTPURLResponse?  , NSError? ) -> Void, failure: @escaping ( Data? ,HTTPURLResponse?  , NSError? )-> Void) {
            request = URLRequest(url: URL(string: url)!)
-           print("URL = \(url)")
+
            request?.httpMethod = method.rawValue
            let configuration = URLSessionConfiguration.default
            session = URLSession(configuration: configuration)
