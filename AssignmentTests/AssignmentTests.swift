@@ -66,7 +66,7 @@ class iOSProficiencttests: XCTestCase {
                        }, failure: { (data, response, error) in
                             XCTFail()
                        })
-                       wait(for: [promise], timeout: 5)
+                       wait(for: [promise], timeout: 10)
                        XCTAssertEqual(self.statuscode, 200
                    )}
        
