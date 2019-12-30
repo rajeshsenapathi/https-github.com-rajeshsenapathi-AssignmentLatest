@@ -119,11 +119,12 @@
 			children = (
 				2111F68723B4E53B00B97F35 /* AppDelegate.swift */,
 				2111F68923B4E53B00B97F35 /* SceneDelegate.swift */,
-				2111F6C023B4E56400B97F35 /* ViewControllers */,
 				2111F6CE23B4E67000B97F35 /* Model */,
 				2111F6BD23B4E55F00B97F35 /* NetworkAdaptor */,
 				2111F6BA23B4E55800B97F35 /* Extensions */,
 				2111F6B723B4E55100B97F35 /* Constants */,
+				2111F6CB23B4E62100B97F35 /* SubViewsAndCells */,
+				2111F6C023B4E56400B97F35 /* ViewControllers */,
 				2111F68D23B4E53B00B97F35 /* Main.storyboard */,
 				2111F69023B4E53C00B97F35 /* Assets.xcassets */,
 				2111F69223B4E53C00B97F35 /* LaunchScreen.storyboard */,
@@ -179,7 +180,6 @@
 			children = (
 				2111F6C123B4E56400B97F35 /* ItemsViewController.swift */,
 				21D123F823B9D1E400A4A4F3 /* DetailViewController.swift */,
-				2111F6CB23B4E62100B97F35 /* SubViewsAndCells */,
 			);
 			name = ViewControllers;
 			path = SubViewsAndCells/ViewControllers;
@@ -190,8 +190,7 @@
 			children = (
 				21F947BC23B6208900288236 /* CustomTableViewCell.swift */,
 			);
-			name = SubViewsAndCells;
-			path = ..;
+			path = SubViewsAndCells;
 			sourceTree = "<group>";
 		};
 		2111F6CE23B4E67000B97F35 /* Model */ = {
