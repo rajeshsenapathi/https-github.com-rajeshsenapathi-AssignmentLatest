@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ItemsViewController: UIViewController {
     var jsonRowsArray: [Rows]?
     var handler =  ApiHandler()
     private let refreshControl = UIRefreshControl()

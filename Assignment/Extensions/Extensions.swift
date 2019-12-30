@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-extension ViewController: UITableViewDelegate,UITableViewDataSource {
+extension ItemsViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let jsonCount = self.jsonRowsArray?.count{
             return jsonCount
