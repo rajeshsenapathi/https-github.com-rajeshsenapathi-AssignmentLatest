@@ -35,57 +35,40 @@ class CustomTableViewCell: UITableViewCell {
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .black
         label.clipsToBounds = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    let jobTitleDetailedLabel:UILabel = {
-        let label = UILabel()
-        label.font =  UIFont.systemFont(ofSize: 14)
-        label.textColor =  #colorLiteral(red: 0.002122662263, green: 0.4628389478, blue: 0.9952664971, alpha: 1)
-
-        label.backgroundColor = UIColor.white
-         label.clipsToBounds = true
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.contentView.addSubview(profileImageView)
         containerView.addSubview(nameLabel)
-        containerView.addSubview(jobTitleDetailedLabel)
         self.contentView.addSubview(containerView)
         let dev = self.traitCollection.userInterfaceIdiom
+        let guide = self.contentView.safeAreaLayoutGuide
         profileImageView.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 20).isActive = true
-        profileImageView.leadingAnchor.constraint(equalTo:self.contentView.leadingAnchor, constant:10).isActive = true
+        profileImageView.leadingAnchor.constraint(equalTo:guide.leadingAnchor, constant:10).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        profileImageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 0).isActive = true
+        profileImageView.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: 0).isActive = true
         if dev == .pad{
             profileImageView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -350).isActive = true
         }
         else{
             profileImageView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -240).isActive = true
         }
-        containerView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10).isActive = true
+        containerView.topAnchor.constraint(equalTo: guide.topAnchor, constant: 10).isActive = true
         containerView.leadingAnchor.constraint(equalTo:self.profileImageView.trailingAnchor, constant:20).isActive = true
-        containerView.trailingAnchor.constraint(equalTo:self.contentView.trailingAnchor, constant:-10).isActive = true
+        containerView.trailingAnchor.constraint(equalTo:guide.trailingAnchor, constant:-10).isActive = true
         
-        nameLabel.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 15).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 30).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor).isActive = true
-        
-        jobTitleDetailedLabel.topAnchor.constraint(equalTo: self.nameLabel.bottomAnchor, constant: 0).isActive = true
-        jobTitleDetailedLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor).isActive = true
-        jobTitleDetailedLabel.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor).isActive = true
-        jobTitleDetailedLabel.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: 0).isActive = true
-        jobTitleDetailedLabel.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        nameLabel.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -10).isActive = true
+        nameLabel.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: -30).isActive  = true
+
         if dev == .pad{
-            jobTitleDetailedLabel.font = UIFont.systemFont(ofSize: 20)
             nameLabel.font = UIFont.boldSystemFont(ofSize: 25)
         }
         }

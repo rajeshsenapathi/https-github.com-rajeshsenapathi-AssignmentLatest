@@ -22,11 +22,20 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.SubViewCellConstants.Custom_TableCell_resuseIdentiFier, for: indexPath) as! CustomTableViewCell
         cell.nameLabel.text =  self.jsonRowsArray?[indexPath.row].title
-        cell.jobTitleDetailedLabel.text = self.jsonRowsArray?[indexPath.row].description
         cell.profileImageView.downloadImageFrom(link: self.jsonRowsArray?[indexPath.row].imageHref ?? Constants.API.PLACEHOLDERURL, contentMode: .scaleToFill)
-                self.canadaTableView.separatorStyle = .none
+        self.canadaTableView.separatorStyle = .none
         cell.selectionStyle = .none
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DetailViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+        let selectedRow = indexPath.row
+        if selectedRow  == indexPath.row{
+        vc.DetailLabel.text  = self.jsonRowsArray?[indexPath.row].description
+        vc.imageUrl =   self.jsonRowsArray?[indexPath.row].imageHref
+        }
+      
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -36,7 +45,7 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
     }
    
     func presentNetowrkAlertWithTwoButton(withTitle title: String, message : String, actionHandler: ((UIAlertAction) -> Void)?) {
-                let alertController = UIAlertController(title: title, message:"", preferredStyle: .alert)
+        let alertController = UIAlertController(title: title, message:"", preferredStyle: .alert)
         let CancelAction = UIAlertAction(title: Constants.AlertConstatnts.CANCEL_MSG, style: .cancel,handler: actionHandler)
         let RetryAction = UIAlertAction(title: Constants.AlertConstatnts.RETRY_MSG, style: .default, handler: actionHandler)
         alertController.addAction(CancelAction)
@@ -64,7 +73,7 @@ extension UIImageView {
                 }
             }).resume()
         }
-        
+   
     }
 }
 extension UIView{

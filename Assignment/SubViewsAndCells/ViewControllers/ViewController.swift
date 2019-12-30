@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     var jsonRowsArray: [Rows]?
     var handler =  ApiHandler()
-
+    var imageUrl: String?
     private let refreshControl = UIRefreshControl()
     let  canadaTableView: UITableView = {
         let t = UITableView()
@@ -67,6 +67,7 @@ class ViewController: UIViewController {
     }
     
     func getItemsList(){
+
         handler.makeAPICall(url: Constants.API.BASEURL, method: .GET, success: { (data, response, error) in
             guard let data = data else{return}
             let responseStrInISOLatin = String(data: data, encoding: String.Encoding.isoLatin1)
