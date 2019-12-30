@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController {
     var jsonRowsArray: [Rows]?
     var handler =  ApiHandler()
-    var imageUrl: String?
     private let refreshControl = UIRefreshControl()
     let  canadaTableView: UITableView = {
         let t = UITableView()
