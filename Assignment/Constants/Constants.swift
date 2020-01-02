@@ -11,6 +11,7 @@ struct  Constants {
     struct  API {
           static let BASEURL  = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
           static let  PLACEHOLDERURL = "https://via.placeholder.com/300"
+        static let emptyUrl = "https://www.google.com/"
     }
     struct  SubViewCellConstants {
         static let CustomTableCellesuseIdentiFier = "CustomTableViewCell"
