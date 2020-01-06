@@ -20,8 +20,8 @@ class ItemsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async { [weak self] in
-            self?.view?.activityStartAnimating(activityColor: UIColor.green,
-                                               backgroundColor: UIColor.white.withAlphaComponent(0.5),
+            self?.view?.activityStartAnimating(activityColor: UIColor.white,
+                                               backgroundColor: UIColor.black.withAlphaComponent(0.5),
                                                title: Constants.AlertConstatnts.ActivityTitle,
                                                center: (self?.view!.center)! )
               }
