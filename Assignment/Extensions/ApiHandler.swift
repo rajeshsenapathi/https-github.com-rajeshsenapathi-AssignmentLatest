@@ -21,8 +21,10 @@ class ApiHandler: NSObject {
        static func instance() -> ApiHandler {
                  return ApiHandler()
        }
-    func makeAPICall(url: String, method: HttpMethod, success:@escaping ( Data?, HTTPURLResponse?, NSError?) -> Void, failure: @escaping ( Data?, HTTPURLResponse?, NSError?) -> Void) {
-        request = URLRequest(url: URL(string: url) ?? URL(string: Constants.API.emptyUrl)!)
+    func makeAPICall(url: String, method: HttpMethod,
+                     success:@escaping ( Data?, HTTPURLResponse?, NSError?) -> Void,
+                     failure: @escaping ( Data?, HTTPURLResponse?, NSError?) -> Void) {
+        request = URLRequest(url: URL(string: url)!)
         request?.httpMethod = method.rawValue
         let configuration = URLSessionConfiguration.default
         session = URLSession(configuration: configuration)

@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class ImageLoader: UIImageView {
-
     var imageURL: URL?
     var imageCache = NSCache<AnyObject, AnyObject>()
     let activityIndicator = UIActivityIndicatorView()
@@ -25,7 +24,6 @@ class ImageLoader: UIImageView {
         image = nil
         activityIndicator.startAnimating()
         if let imageFromCache = imageCache.object(forKey: url as AnyObject) as? UIImage {
-
             self.image = imageFromCache
             activityIndicator.stopAnimating()
             return
@@ -39,9 +37,7 @@ class ImageLoader: UIImageView {
                 return
             }
             DispatchQueue.main.async(execute: { [weak self] in
-                if self?.image == nil {
                     self?.image = UIImage(named: Constants.ImageConstatnts.PlaceholderImageName)
-                }
                 if let unwrappedData = data, let imageToCache = UIImage(data: unwrappedData) {
                     if self?.imageURL == url {
                         self?.image = imageToCache

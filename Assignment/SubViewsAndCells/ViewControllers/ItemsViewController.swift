@@ -20,7 +20,9 @@ class ItemsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async { [weak self] in
-            self?.view?.activityStartAnimating(activityColor: UIColor.green, backgroundColor: UIColor.white.withAlphaComponent(0.5), title: Constants.AlertConstatnts.ActivityTitle,
+            self?.view?.activityStartAnimating(activityColor: UIColor.green,
+                                               backgroundColor: UIColor.white.withAlphaComponent(0.5),
+                                               title: Constants.AlertConstatnts.ActivityTitle,
                                                center: (self?.view!.center)! )
               }
         loadTableView()
@@ -29,7 +31,8 @@ class ItemsViewController: UIViewController {
             self.refreshTabeleViewWithItems()
         } else {
             print(Constants.InternetConnectivity.NETWORKFailureMSG)
-            self.presentNetowrkAlertWithTwoButton(withTitle: Constants.AlertConstatnts.TITLE, message: Constants.AlertConstatnts.TitleMsg) { (_) in
+            self.presentNetowrkAlertWithTwoButton(withTitle: Constants.AlertConstatnts.TITLE,
+                                                  message: Constants.AlertConstatnts.TitleMsg) { (_) in
                 DispatchQueue.main.async { [weak self] in
                     self?.view.activityStopAnimating()
                     self?.refreshTabeleViewWithItems()
@@ -44,7 +47,8 @@ class ItemsViewController: UIViewController {
     }
     func loadTableView() {
         self.view.addSubview(canadaTableView)
-        canadaTableView.register(CustomTableViewCell.self, forCellReuseIdentifier: Constants.SubViewCellConstants.CustomTableCellesuseIdentiFier)
+        canadaTableView.register(CustomTableViewCell.self,
+                                 forCellReuseIdentifier: Constants.SubViewCellConstants.CustomTableCellesuseIdentiFier)
         canadaTableView.delegate = self
         canadaTableView.dataSource = self
         self.view.addSubview(canadaTableView)
@@ -55,8 +59,10 @@ class ItemsViewController: UIViewController {
         canadaTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
         canadaTableView.tableFooterView = UIView()
         refreshControl.tintColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
-          let attributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 0.25, green: 0.72, blue: 0.85, alpha: 1.0)]
-         let attributedTitle = NSAttributedString(string: Constants.AlertConstatnts.REFRESHCONTROLTitle, attributes: attributes)
+          let attributes = [NSAttributedString.Key.foregroundColor:
+            UIColor(red: 0.25, green: 0.72, blue: 0.85, alpha: 1.0)]
+         let attributedTitle = NSAttributedString(string: Constants.AlertConstatnts.REFRESHCONTROLTitle,
+                                                  attributes: attributes)
         refreshControl.attributedTitle = attributedTitle
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         if #available(iOS 10.0, *) {
@@ -99,19 +105,25 @@ extension ItemsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    func presentNetowrkAlertWithTwoButton(withTitle title: String, message: String, actionHandler: ((UIAlertAction) -> Void)?) {
+    func presentNetowrkAlertWithTwoButton(withTitle title: String,
+                                          message: String, actionHandler: ((UIAlertAction) -> Void)?) {
         let alertController = UIAlertController(title: title, message: "", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: Constants.AlertConstatnts.CANCELMSG, style: .cancel, handler: actionHandler)
-        let retryAction = UIAlertAction(title: Constants.AlertConstatnts.RETRYMSG, style: .default, handler: actionHandler)
+        let cancelAction = UIAlertAction(title: Constants.AlertConstatnts.CANCELMSG,
+                                         style: .cancel, handler: actionHandler)
+        let retryAction = UIAlertAction(title: Constants.AlertConstatnts.RETRYMSG,
+                                        style: .default, handler: actionHandler)
         alertController.addAction(cancelAction)
         alertController.addAction(retryAction)
         alertController.preferredAction = retryAction
         self.present(alertController, animated: true, completion: nil)
     }
     func populateDataToCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.SubViewCellConstants.CustomTableCellesuseIdentiFier, for: indexPath) as? CustomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier:
+            Constants.SubViewCellConstants.CustomTableCellesuseIdentiFier,
+                                                 for: indexPath) as? CustomTableViewCell
         cell?.nameLabel.text =  self.jsonRowsArray?[indexPath.row].title
-        cell?.profileImageView.loadImageWithUrl(URL(string: self.jsonRowsArray?[indexPath.row].imageHref ?? Constants.API.PLACEHOLDERURL)!)
+        cell?.profileImageView.loadImageWithUrl(URL(string: self.jsonRowsArray?[indexPath.row].imageHref ??
+            Constants.API.PLACEHOLDERURL)!)
         cell?.jobTitleDetailedLabel.text = self.jsonRowsArray?[indexPath.row].description
         self.canadaTableView.separatorStyle = .none
         cell?.selectionStyle = .none

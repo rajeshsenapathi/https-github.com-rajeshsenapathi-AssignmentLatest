@@ -61,12 +61,15 @@ let containerView: UIView = {
         profileImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         profileImageView.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: 0).isActive = true
         if dev == .pad {
-            profileImageView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -350).isActive = true
+            profileImageView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor,
+                                                       constant: -350).isActive = true
         } else {
-            profileImageView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -240).isActive = true
+            profileImageView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor,
+                                                       constant: -240).isActive = true
         }
         containerView.topAnchor.constraint(equalTo: guide.topAnchor, constant: 20).isActive = true
-        containerView.leadingAnchor.constraint(equalTo: self.profileImageView.trailingAnchor, constant: 20).isActive = true
+        containerView.leadingAnchor.constraint(equalTo: self.profileImageView.trailingAnchor,
+                                               constant: 20).isActive = true
         containerView.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -20).isActive = true
         containerView.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -10).isActive = true
         nameLabel.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 20).isActive = true

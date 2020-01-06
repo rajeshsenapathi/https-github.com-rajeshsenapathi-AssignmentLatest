@@ -29,7 +29,8 @@ class Assignmenttests: XCTestCase {
         // This is an example of a performance test case fot hitting url and getting image from url
                       self.measure {
                  let promise = expectation(description: "Status code: 200")
-                        handler.makeAPICall(url: Constants.API.BASEURL, method: .GET, success: { (data, response, error) in
+                        handler.makeAPICall(url: Constants.API.BASEURL, method: .GET,
+                                            success: { (data, response, error) in
                           if let statuscode = (response)?.statusCode {
                                self.statuscode = statuscode
                                XCTAssertEqual(self.statuscode, 200)
@@ -52,7 +53,8 @@ class Assignmenttests: XCTestCase {
                                 for str in self.imageUrlaary ?? ["https://via.placeholder.com/150"] {
                                     self.urlstr = str
                                 }
-                                self.imageView?.image = UIImage(data: try Data(contentsOf: (URL(string: self.urlstr ?? "https://via.placeholder.com/150")!)))!
+                                self.imageView?.image = UIImage(data: try Data(contentsOf:
+                                    (URL(string: self.urlstr ?? "https://via.placeholder.com/150")!)))!
                                 XCTAssertTrue(true, "image loaded successfully")
                             } catch {
                                 print(error.localizedDescription)
