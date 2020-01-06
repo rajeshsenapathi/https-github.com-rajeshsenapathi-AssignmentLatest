@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 class ItemsViewData: NSObject {
     let handler = ApiHandler()
     var jsonRowsArray: [Rows]?
@@ -32,5 +33,17 @@ class ItemsViewData: NSObject {
         },
             failure: { (_, _, _) in
         })
+    }
+    func populateDataToCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier:
+            Constants.SubViewCellConstants.CustomTableCellesuseIdentiFier,
+                                                 for: indexPath) as? CustomTableViewCell
+        cell?.nameLabel.text =  self.jsonRowsArray?[indexPath.row].title
+        cell?.profileImageView.loadImageWithUrl(URL(string: self.jsonRowsArray?[indexPath.row].imageHref ??
+            Constants.API.PLACEHOLDERURL)!)
+        cell?.jobTitleDetailedLabel.text = self.jsonRowsArray?[indexPath.row].description
+        tableView.separatorStyle = .none
+        cell?.selectionStyle = .none
+        return cell!
     }
 }
