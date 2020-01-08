@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		2111F68823B4E53B00B97F35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111F68723B4E53B00B97F35 /* AppDelegate.swift */; };
 		2111F68A23B4E53B00B97F35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111F68923B4E53B00B97F35 /* SceneDelegate.swift */; };
-		2111F68F23B4E53B00B97F35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2111F68D23B4E53B00B97F35 /* Main.storyboard */; };
 		2111F69123B4E53C00B97F35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2111F69023B4E53C00B97F35 /* Assets.xcassets */; };
-		2111F69423B4E53C00B97F35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2111F69223B4E53C00B97F35 /* LaunchScreen.storyboard */; };
 		2111F69F23B4E53C00B97F35 /* AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111F69E23B4E53C00B97F35 /* AssignmentTests.swift */; };
 		2111F6AA23B4E53C00B97F35 /* AssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111F6A923B4E53C00B97F35 /* AssignmentUITests.swift */; };
 		2111F6B923B4E55100B97F35 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111F6B823B4E55100B97F35 /* Constants.swift */; };
@@ -54,9 +52,7 @@
 		2111F68423B4E53B00B97F35 /* Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2111F68723B4E53B00B97F35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2111F68923B4E53B00B97F35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2111F68E23B4E53B00B97F35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2111F69023B4E53C00B97F35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2111F69323B4E53C00B97F35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2111F69523B4E53C00B97F35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2111F69A23B4E53C00B97F35 /* AssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2111F69E23B4E53C00B97F35 /* AssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentTests.swift; sourceTree = "<group>"; };
@@ -148,9 +144,7 @@
 				2111F6B723B4E55100B97F35 /* Constants */,
 				2111F6CB23B4E62100B97F35 /* SubViewsAndCells */,
 				2111F6C023B4E56400B97F35 /* ViewControllers */,
-				2111F68D23B4E53B00B97F35 /* Main.storyboard */,
 				2111F69023B4E53C00B97F35 /* Assets.xcassets */,
-				2111F69223B4E53C00B97F35 /* LaunchScreen.storyboard */,
 				2111F69523B4E53C00B97F35 /* Info.plist */,
 			);
 			path = Assignment;
@@ -361,9 +355,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2111F69423B4E53C00B97F35 /* LaunchScreen.storyboard in Resources */,
 				2111F69123B4E53C00B97F35 /* Assets.xcassets in Resources */,
-				2111F68F23B4E53B00B97F35 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,25 +514,6 @@
 			targetProxy = 2111F6A623B4E53C00B97F35 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		2111F68D23B4E53B00B97F35 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2111F68E23B4E53B00B97F35 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		2111F69223B4E53C00B97F35 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2111F69323B4E53C00B97F35 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2111F6AC23B4E53C00B97F35 /* Debug */ = {
